@@ -2,9 +2,10 @@
   <div class="login_container">
     <div class="login_box">
       <!-- 头像区域 -->
-      <!-- <div class="avatar_box">
-        <img src="../assets/logo.png" alt="" />
-      </div> -->
+      
+      <div class="avatar_box">
+        <img src="../assets/bg/avatar.png" alt="" />
+      </div>
       <!-- 登录表单区域 -->
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
         <!-- 用户名 -->
@@ -93,8 +94,8 @@ export default {
 
 <style lang="less" scoped>
 .login_container {
-  // background-color: #2b4b6b;
-//   background-image: url('');
+//   background-color: #2b4b6b;
+  background-image: url('../assets/bg/Loginbg.png');
   height: 100%;
   background-repeat: no-repeat;
   background-size: 100% 100%;

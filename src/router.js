@@ -18,10 +18,30 @@ const routes = [
   },
   {
     path: '/home',
+    redirect: "/statistics",
     meta: {
       title: "首页",
     },
     component:() => import('./views/Home.vue'),
+    children: [
+      {
+        path: "/map",
+        component: () => import('./views/map.vue'),
+        meta: {
+          title: "可视化地图",
+        },
+      },
+      {
+      path: "/statistics",
+      component: () => import('./views/statistics.vue'),
+      meta: {
+        title: "统计",
+      },
+    },
+
+    
+  ]
+    
   },
 ]
 
@@ -34,12 +54,6 @@ router.beforeEach((to, from, next) => {
   // 获取token
   const tokenStr = window.localStorage.getItem("token");
   if (!tokenStr) return next("/login");
-  /* 路由发生变化修改页面title */
-  if (to.params.id) {
-    document.title = to.meta.title + to.params.id + "详情";
-  } else {
-    document.title = to.meta.title;
-  }
   // console.log(to)
   next();
 });
