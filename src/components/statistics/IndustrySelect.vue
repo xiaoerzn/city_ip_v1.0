@@ -2,7 +2,7 @@
     <div>
         <el-row type="flex" justify="space-around">
             <el-col :span="10">
-                <el-button >航空</el-button>
+                <el-button  @click="change" >航空</el-button>
             </el-col>
             <el-col :span="10">
                 <el-button type="primary">能源</el-button>
