@@ -48,14 +48,14 @@ export default {
 }
 </script>
 
-   <style lang="less" >
+   <style lang="less" scoped>
    
   
-   .el-radio-group {
+   /deep/.el-radio-group {
        width: 100%;
    }
    
-   .el-radio-button {
+   /deep/.el-radio-button {
     
        height: 80px;
        width: 200px;
@@ -63,18 +63,18 @@ export default {
    
    }
    
-   .el-radio-button__inner {
+   /deep/.el-radio-button__inner {
        height: 80px;
-       width: 180px;
+       width: 261px;
        font-size: 30px;
        line-height: 54px;
       
    }
-   .all{
+   /deep/.all{
     .el-radio-button__inner {
         margin-left: 26px;
        height: 60px;
-       width: 495px;
+       width:575px;
        font-size: 30px;
        line-height: 34px;
    }
