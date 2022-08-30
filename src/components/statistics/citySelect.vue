@@ -1,47 +1,48 @@
 <template>
   <div class="block">
 
-    <el-cascader placeholder="试试搜索：指南" :options="options" filterable :show-all-levels="false" @change="handleChange">
+    <el-cascader placeholder="试试搜索：休斯顿" 
+    :options="options"
+    filterable
+    :show-all-levels="true"
+    @change="handleChange"
+      ref="Cascader">
     </el-cascader>
   </div>
 </template>
 
 <script>
-import { METHODS } from 'http';
+
 
 export default {
   data() {
     return {
       options: [{
-        value: 'zhinan',
-        label: '指南',
-        children: [{
-          value: 'shejiyuanze',
-          label: '设计原则',
-          children: [{
-            value: 'yizhi',
-            label: '一致'
+        value: 'meiguo',
+        label: '美国',
+        children: [
+          {
+            value: 'dkss',
+            label: '德克萨斯州',
+            children: [{
+              value: 'xsd',
+              label: '休斯顿'
+            }, {
+              value: 'kekong',
+              label: '休斯顿2'
+            }]
           }, {
-            value: 'fankui',
-            label: '反馈'
-          }, {
-            value: 'xiaolv',
-            label: '效率'
-          }, {
-            value: 'kekong',
-            label: '可控'
-          }]
-        }, {
-          value: 'daohang',
-          label: '导航',
-          children: [{
-            value: 'cexiangdaohang',
-            label: '侧向导航'
-          }, {
-            value: 'dingbudaohang',
-            label: '顶部导航'
-          }]
-        }]
+            value: 'flld',
+            label: '弗洛里达州',
+            children: [{
+              value: 'cexiangdaohang',
+              label: '侧向导航'
+            }, {
+              value: 'dingbudaohang',
+              label: '顶部导航'
+            }]
+          }
+        ]
       }, {
         value: 'zujian',
         label: '组件',
@@ -209,10 +210,22 @@ export default {
       }]
     };
   },
+  mounted() {
+  // this.getMenuList()
+  },
   methods: {
     handleChange(value) {
-      console.log(value);
-    }
+      // console.log(value);
+      let labelData = this.$refs.Cascader.getCheckedNodes()[0].pathLabels[0]
+      // console.log(labelData);
+      this.$emit('SelectCity',labelData)
+    },
+    async getMenuList() {
+      const { data: res } = await this.$http.get('menu')
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this.options = res.data
+      // console.log(res)
+    },
   }
 }
 </script>
