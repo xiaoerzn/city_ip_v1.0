@@ -11,7 +11,7 @@
 
       </el-col>
       <el-col :span="16">
-        <Data @time_select="timeSelect($event)" :AssetNum="asset_num" :AssetRate="asset_rate"></Data>
+        <Data @time_select="timeSelect($event)" :AssetNum="asset_num" :AssetRate="asset_rate" :kind="Kind"></Data>
       </el-col>
     </el-row>
 
@@ -29,8 +29,9 @@ export default {
 
   data() {
     return {
-      asset_num: -12344234,
-      asset_rate: '13'
+      asset_num: 12344234,
+      asset_rate:'-13',
+      Kind:'全部'
     }
   },
   methods: {
@@ -38,6 +39,7 @@ export default {
       // console.log(e)
     },
     industry(e) {
+      this.Kind=e
       // console.log(e)
     },
     timeSelect(e) {
