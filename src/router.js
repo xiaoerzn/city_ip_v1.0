@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,14 +29,21 @@ const routes = [
         path: "/map",
         component: () => import('./views/map.vue'),
         meta: {
-          title: "可视化地图",
+          title: "首页-可视化地图",
         },
       },
       {
       path: "/statistics",
       component: () => import('./views/statistics.vue'),
       meta: {
-        title: "统计",
+        title: "首页-统计",
+      },
+    },
+    {
+      path: "/Asset",
+      component: () => import('./views/Asset/AssetHome.vue'),
+      meta: {
+        title: "网络资产",
       },
     },
 
@@ -54,7 +62,12 @@ router.beforeEach((to, from, next) => {
   // 获取token
   const tokenStr = window.localStorage.getItem("token");
   if (!tokenStr) return next("/login");
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
   // console.log(to)
   next();
 });
+
+
 export default router

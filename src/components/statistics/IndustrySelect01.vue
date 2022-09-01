@@ -42,7 +42,7 @@
 export default {
     data() {
         return {
-            radio1: '全部',
+            radio1: '所有行业',
 
         };
     },
@@ -87,5 +87,8 @@ export default {
    }
    .el-row {
        margin-bottom: 20px;
+   }
+   p{
+    margin-bottom: 10px;
    }
    </style>

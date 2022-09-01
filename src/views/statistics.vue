@@ -67,7 +67,7 @@ export default {
 
 <style lang="less" scoped>
 .city {
-  margin-bottom: 150px;
+  margin-bottom: 120px;
 }
 
 .industry {

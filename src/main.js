@@ -31,3 +31,6 @@ new Vue({
 }).$mount('#app')
 // --------------------------------------------阿里iconfont------------------------------
 import './assets/sta/staIcon/iconfont.css'
+// ---------------------------------------------------公共方法配置--------------------------------------------------------------
+import CommonFunction from "./common.js"
+Vue.prototype.CommonFunction=CommonFunction

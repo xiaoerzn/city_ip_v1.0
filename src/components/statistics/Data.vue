@@ -4,7 +4,7 @@
             <el-col :span="10">
                 <el-card class="asset-box-card">
                     <div slot="header" class="clearfix">
-                        <span>资产总量-{{ kind }}</span>
+                        <span>资产总量-{{ kind }}</span> &nbsp;<el-button type="text" icon="el-icon-view" @click="view_asset()" >查看详情</el-button>
                         <el-radio-group v-model="radio1" style="float: right; " @change="change_time">
                             <el-radio-button label="2022"></el-radio-button>
                             <el-radio-button label="2021"></el-radio-button>
@@ -110,6 +110,9 @@ export default {
     methods: {
         change_time(e) {
             this.$emit('time_select', e)
+        },
+        view_asset(){
+            this.CommonFunction.OpenNewBlank('','Asset',this)
         },
 
     }
