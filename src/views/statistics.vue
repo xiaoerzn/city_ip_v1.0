@@ -11,7 +11,16 @@
 
       </el-col>
       <el-col :span="16">
-        <Data @time_select="timeSelect($event)" :AssetNum="asset_num" :AssetRate="asset_rate" :kind="Kind"></Data>
+        <Data @time_select="timeSelect($event)"
+        :AssetNum="asset_num"
+        :AssetRate="asset_rate" 
+        :ASNum="AS_num" 
+        :ASRate="AS_rate" 
+        :DomainNum="Domain_num" 
+        :DomainRate="Domain_rate" 
+        :NewsNum="News_num" 
+        :NewsRate="News_rate"
+        :kind="Kind"></Data>
       </el-col>
     </el-row>
 
@@ -31,7 +40,13 @@ export default {
     return {
       asset_num: 12344234,
       asset_rate:'-13',
-      Kind:'全部'
+      AS_num:235435,
+      AS_rate :45,
+      Domain_num :67345,
+      Domain_rate :-20,
+      News_num:5478,
+      News_rate:57,
+      Kind:'所有行业'
     }
   },
   methods: {
@@ -52,8 +67,7 @@ export default {
 
 <style lang="less" scoped>
 .city {
-
-  margin-bottom: 250px;
+  margin-bottom: 150px;
 }
 
 .industry {

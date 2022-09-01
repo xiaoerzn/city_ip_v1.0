@@ -1,0 +1,51 @@
+{
+  "id": "3623296",
+  "name": "city_IP",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2116684",
+      "name": "水利企业",
+      "font_class": "shuiliqiye",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "5318210",
+      "name": "金融",
+      "font_class": "jinrong",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "5327613",
+      "name": "交通衔接专业",
+      "font_class": "zuoce-jiaotongxianjiezhuanye",
+      "unicode": "e717",
+      "unicode_decimal": 59159
+    },
+    {
+      "icon_id": "7055203",
+      "name": "电力集团",
+      "font_class": "dianlijituan",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "8400521",
+      "name": "能源化工",
+      "font_class": "nengyuanhuagong",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "13106270",
+      "name": "航空航天",
+      "font_class": "hangkonghangtian",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}

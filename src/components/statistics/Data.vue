@@ -18,7 +18,7 @@
                             <span :class="[Number(AssetRate) > 0 ? 'rate1' : 'rate0']">{{ AssetRate }}%</span>
                         </div>
                         <div>
-                            <img src="../../assets/staPic/purple.png" alt="">
+                            <img src="../../assets/sta/staPic/purple.png" alt="">
                         </div>
                     </div>
                 </el-card>
@@ -34,13 +34,13 @@
                     </div>
                     <div class="card_body">
                         <div>
-                            <span class="num">{{ Number(AssetNum).toLocaleString('en-US') }}</span>
-                            <i v-if="Number(AssetRate) > 0" class="el-icon-top"></i><i v-else
+                            <span class="num">{{ Number(DomainNum).toLocaleString('en-US') }}</span>
+                            <i v-if="Number(DomainRate) > 0" class="el-icon-top"></i><i v-else
                                 class="el-icon-bottom"></i>
-                            <span :class="[Number(AssetRate) > 0 ? 'rate1' : 'rate0']">{{ AssetRate }}%</span>
+                            <span :class="[Number(DomainRate) > 0 ? 'rate1' : 'rate0']">{{ DomainRate }}%</span>
                         </div>
                         <div>
-                            <img src="../../assets/staPic/yellow.png" alt="">
+                            <img src="../../assets/sta/staPic/yellow.png" alt="">
                         </div>
                     </div>
                 </el-card>
@@ -58,12 +58,12 @@
                     </div>
                     <div class="card_body">
                         <div>
-                            <span class="num">{{ Number(AssetNum).toLocaleString('en-US') }}</span>
-                            <i v-if="Number(AssetRate) > 0" class="el-icon-top"></i><i v-else class="el-icon-bottom"></i>
-                            <span :class="[Number(AssetRate) > 0 ? 'rate1' : 'rate0']">{{ AssetRate }}%</span>
+                            <span class="num">{{ Number(ASNum).toLocaleString('en-US') }}</span>
+                            <i v-if="Number(ASRate) > 0" class="el-icon-top"></i><i v-else class="el-icon-bottom"></i>
+                            <span :class="[Number(ASRate) > 0 ? 'rate1' : 'rate0']">{{ ASRate}}%</span>
                         </div>
                         <div>
-                            <img src="../../assets/staPic/blue.png" alt="">
+                            <img src="../../assets/sta/staPic/blue.png" alt="">
                         </div>
                     </div>
                 </el-card>
@@ -79,12 +79,12 @@
                     </div>
                     <div class="card_body">
                         <div>
-                            <span class="num">{{ Number(AssetNum).toLocaleString('en-US') }}</span>
-                            <i v-if="Number(AssetRate) > 0" class="el-icon-top"></i><i v-else class="el-icon-bottom"></i>
-                            <span :class="[Number(AssetRate) > 0 ? 'rate1' : 'rate0']">{{ AssetRate }}%</span>
+                            <span class="num">{{ Number(NewsNum).toLocaleString('en-US') }}</span>
+                            <i v-if="Number(NewsRate) > 0" class="el-icon-top"></i><i v-else class="el-icon-bottom"></i>
+                            <span :class="[Number(NewsRate) > 0 ? 'rate1' : 'rate0']">{{ NewsRate }}%</span>
                         </div>
                         <div>
-                            <img src="../../assets/staPic/tiffany.png" alt="">
+                            <img src="../../assets/sta/staPic/tiffany.png" alt="">
                         </div>
                     </div>
                 </el-card>
@@ -98,7 +98,7 @@
 
 
 export default {
-    props: ["AssetNum", "AssetRate", "kind"],
+    props: ["AssetNum", "AssetRate", "DomainNum", "DomainRate","ASNum", "ASRate","NewsNum", "NewsRate","kind"],
     data() {
         return {
             radio1: '2022',
@@ -122,7 +122,7 @@ export default {
         
     }
     .el-row{
-        margin-bottom: 50px;
+        margin-bottom: 70px;
     }
 .asset-box-card {
     border-radius: 8px;

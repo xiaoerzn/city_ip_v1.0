@@ -29,3 +29,5 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
+// --------------------------------------------阿里iconfont------------------------------
+import './assets/sta/staIcon/iconfont.css'
