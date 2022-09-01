@@ -43,7 +43,7 @@ export default {
       // console.log(e)
     },
     timeSelect(e) {
-      console.log(e)
+      // console.log(e)
     }
   }
 
