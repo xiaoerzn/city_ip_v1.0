@@ -7,11 +7,11 @@
             <el-button type="info" @click="logout">退出</el-button>
         </el-header>
         <el-main>
-            <div class="menubox">
-                <el-menu mode="horizontal" router background-color="#c0c4cc" text-color="#fff"
-                    active-text-color="#ffd04b" :default-active="$route.path">
-                    <el-menu-item index="/statistics">网络空间数据统计</el-menu-item>
-                    <el-menu-item index="/map">网络空间地图展示</el-menu-item>
+            <div class="menubox" >
+                <el-menu v-show="indexShow" mode="horizontal" router background-color="#c0c4cc" text-color="#fff"
+                    active-text-color="#ffd04b" :default-active="$route.path" >
+                    <el-menu-item index="/home_statistics">网络空间数据统计</el-menu-item>
+                    <el-menu-item index="/home_map">网络空间地图展示</el-menu-item>
                 </el-menu>
             </div>
             <!-- 路由占位符 -->
@@ -25,19 +25,17 @@
 export default {
     data() {
         return {
+            indexShow:false,
             menulist: [
-                {
-                    link: '/statistics',
-                    name: '网络空间数据统计'
-                },
-                {
-                    link: '/map',
-                    name: '网络空间地图展示'
-                },
+
             ]
         }
 
     },
+    created() {
+        this.indexShow = (window.location.hash).includes('home_');
+    },
+
     methods: {
         logout() {
             // window.localStorage.clear()
@@ -59,7 +57,7 @@ export default {
     // top: 155px;
     background-color: #eaedf1;
     // min-width:1725px
-    padding:10px;
+    padding: 10px;
 }
 
 .el-header {
@@ -87,7 +85,7 @@ export default {
     width: 244px;
     height: 35px;
     margin-left: 20px;
-    float:right;
+    float: right;
 }
 
 .el-menu-item {

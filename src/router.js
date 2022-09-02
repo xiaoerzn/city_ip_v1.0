@@ -19,21 +19,21 @@ const routes = [
   },
   {
     path: '/home',
-    redirect: "/statistics",
+    redirect: "/home_statistics",
     meta: {
       title: "首页",
     },
-    component:() => import('./views/Home_v2.vue'),
+    component:() => import('./views/Home.vue'),
     children: [
       {
-        path: "/map",
+        path: "/home_map",
         component: () => import('./views/map.vue'),
         meta: {
           title: "首页-可视化地图",
         },
       },
       {
-      path: "/statistics",
+      path: "/home_statistics",
       component: () => import('./views/statistics.vue'),
       meta: {
         title: "首页-统计",
@@ -65,7 +65,6 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
   }
-  // console.log(to)
   next();
 });
 
