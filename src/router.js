@@ -23,7 +23,7 @@ const routes = [
     meta: {
       title: "首页",
     },
-    component:() => import('./views/Home.vue'),
+    component:() => import('./views/Home_v2.vue'),
     children: [
       {
         path: "/map",

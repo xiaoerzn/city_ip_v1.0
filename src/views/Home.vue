@@ -6,8 +6,6 @@
             <span>IP画像系统</span>
             <el-button type="info" @click="logout">退出</el-button>
         </el-header>
-
-
         <el-main>
             <div class="menubox">
                 <el-menu mode="horizontal" router background-color="#c0c4cc" text-color="#fff"
