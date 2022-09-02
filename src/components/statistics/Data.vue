@@ -26,7 +26,7 @@
             <el-col :span="10">
                 <el-card class="Domain-box-card">
                     <div slot="header" class="clearfix">
-                        <span>域名总量-{{ kind }}</span>
+                        <span>域名总量-{{ kind }}</span>&nbsp;<el-button type="text" icon="el-icon-view" @click="view_domain()" >查看详情</el-button>
                         <el-radio-group v-model="radio2" style="float: right; " @change="change_time">
                             <el-radio-button label="2022"></el-radio-button>
                             <el-radio-button label="2021"></el-radio-button>
@@ -114,6 +114,9 @@ export default {
         view_asset(){
             this.CommonFunction.OpenNewBlank('','Asset',this)
         },
+        view_domain(){
+            this.CommonFunction.OpenNewBlank('','node1',this)
+        }
 
     }
 }

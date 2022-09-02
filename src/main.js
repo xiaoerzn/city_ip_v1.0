@@ -34,3 +34,8 @@ import './assets/sta/staIcon/iconfont.css'
 // ---------------------------------------------------公共方法配置--------------------------------------------------------------
 import CommonFunction from "./common.js"
 Vue.prototype.CommonFunction=CommonFunction
+// ---------------------------------------------百度地图-------------------
+import BaiduMap from "vue-baidu-map";
+Vue.use(BaiduMap, {
+  ak: "HcOsUXOCYNGGuuayQnGXK7EG38pEglSA",
+});

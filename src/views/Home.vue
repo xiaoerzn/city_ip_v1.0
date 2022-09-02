@@ -26,9 +26,6 @@ export default {
     data() {
         return {
             indexShow:false,
-            menulist: [
-
-            ]
         }
 
     },

@@ -232,12 +232,6 @@ export default {
     },
     view_details(ip) {
       this.CommonFunction.OpenNewBlank(ip, "Assetdetail", this);
-      //   const { href } = this.$router.resolve({
-      //     path: `/AssetDetail/${ip}`,
-      //   });
-      //   window.open(href, "_blank");
-      //   // console.log('111')
-      //   // this.$router.push({ path: `/Assetdetail/${ip}` })
     },
     open(ssl) {
       this.$alert('详情', "证书详情", {

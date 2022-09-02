@@ -46,8 +46,28 @@ const routes = [
         title: "网络资产",
       },
     },
+    {
+      path: "/AssetDetail/:id",
+      component: () => import('./views/Asset/AssetDetail.vue'),
+      meta: {
+        title: "资产",
+      },
+    },
+    {
+      path: "/node1",
+      component: ()=>import('./views/Domain/DomainHome.vue'),
+      meta: {
+        title: "网络域名",
+      },
+    }, {
+      path: "/DomainDetail/:id",
+      component: ()=>import('./views/Domain/DomainDetail.vue'),
+      meta: {
+        title: "域名",
+      },
+    }, 
 
-    
+
   ]
     
   },
