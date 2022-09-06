@@ -11,7 +11,7 @@ import "./assets/css/global.css"
 import axios from "axios";
 Vue.prototype.$http = axios;
 // 配置请求的根路径
-axios.defaults.baseURL = "http://10.15.1.192:8000/apis";
+axios.defaults.baseURL = "http://10.15.1.192:8888/apis";
 axios.interceptors.request.use((config) => {
   // 将token保存到authorization中
   config.headers.Authorization = window.localStorage.getItem("token");

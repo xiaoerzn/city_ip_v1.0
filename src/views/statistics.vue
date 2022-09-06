@@ -3,10 +3,10 @@
     <el-row class="select">
       <el-col :span="8">
         <div class="city">
-          <city-select  :options="CityOptions" @SelectCity="city($event)"></city-select>
+          <city-select  :options="CityOptions" @SelectCity="citySelect($event)"></city-select>
         </div>
         <div class="industry">
-          <IndustrySelect @SelectIndustry="industry($event)"></IndustrySelect>
+          <IndustrySelect @SelectIndustry="industrySelect($event)"></IndustrySelect>
         </div>
 
       </el-col>
@@ -48,28 +48,30 @@ export default {
       News_rate:57,
       Kind:'所有行业',
       CityOptions:[],
+      queryInfo:{city:'',industry:'',time:'2022'}
     }
   },
-  mounted() {
-  // this.getCityList()
+ created() {
+  this.getCityList()
   },
   methods: {
-    city(e) {
-      
+    citySelect(e) {
+      this.queryInfo.city=e
       // console.log(e)
     },
-    industry(e) {
+    industrySelect(e) {
       this.Kind=e
+      this.queryInfo.industry=e
       // console.log(e)
     },
     timeSelect(e) {
-      // console.log(e)
+      console.log(e)
+      // this.queryInfo.time=e
     },
     async getCityList() {
-      const { data: res } = await this.$http.get('menu')
+      const { data: res } = await this.$http.get('home/maplist')
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.CityOptions = res.data
-      // console.log(res)
     },
     async getStaData() {
       const { data: res } = await this.$http.get('as_info_search', {
@@ -100,3 +102,9 @@ export default {
   height: 60%
 }
 </style>
+
+
+
+
+
+

@@ -4,7 +4,7 @@
       <!-- 头像区域 -->
       
       <div class="avatar_box">
-        <img src="../assets/bg/avatar.png" alt="" />
+        <img  v-loading="loading" src="../assets/bg/avatar.png" alt="" />
       </div>
       <!-- 登录表单区域 -->
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
@@ -30,6 +30,7 @@
 export default {
   data () {
     return {
+      loading:true,
       // 这是登录表单的数据绑定对象
       loginForm: {
         username: 'zhangnan',
@@ -59,6 +60,7 @@ export default {
           if (!valid) return
           const { data: res } = await that.$http.post('login', that.loginForm)
           if (res.meta.status !== 200) return that.$message.error('登录失败！')
+          this.loading=false
           that.$message.success('登录成功')
 
           window.localStorage.setItem('token', res.data.token)
@@ -77,7 +79,7 @@ export default {
       this.$refs.loginFormRef.validate(async (valid) => {
         try {
           if (!valid) return
-          const { data: res } = await this.$http.post('login', this.loginForm)
+          const { data: res } = await this.$http.post('base/login', this.loginForm)
           // console.log(res)
           if (res.meta.status !== 200) return this.$message.error('登录失败！')
           this.$message.success('登录成功')
