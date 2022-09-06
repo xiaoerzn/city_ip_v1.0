@@ -3,7 +3,7 @@
     <el-row class="select">
       <el-col :span="8">
         <div class="city">
-          <city-select @SelectCity="city($event)"></city-select>
+          <city-select  :options="CityOptions" @SelectCity="city($event)"></city-select>
         </div>
         <div class="industry">
           <IndustrySelect @SelectIndustry="industry($event)"></IndustrySelect>
@@ -46,11 +46,16 @@ export default {
       Domain_rate :-20,
       News_num:5478,
       News_rate:57,
-      Kind:'所有行业'
+      Kind:'所有行业',
+      CityOptions:[],
     }
+  },
+  mounted() {
+  // this.getCityList()
   },
   methods: {
     city(e) {
+      
       // console.log(e)
     },
     industry(e) {
@@ -59,7 +64,28 @@ export default {
     },
     timeSelect(e) {
       // console.log(e)
-    }
+    },
+    async getCityList() {
+      const { data: res } = await this.$http.get('menu')
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this.CityOptions = res.data
+      // console.log(res)
+    },
+    async getStaData() {
+      const { data: res } = await this.$http.get('as_info_search', {
+        params: this.queryInfo
+      })
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this.asset_num = res.data
+      this.asset_rate=1;
+      this.AS_num=235435;
+      this.AS_rate=45;
+      this.Domain_num =67345;
+      this.Domain_rate =-20;
+      this.News_num=5478;
+      this.News_rate=57;
+      // console.log(res)
+    },
   }
 
 }

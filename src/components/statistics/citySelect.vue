@@ -15,6 +15,7 @@
 
 
 export default {
+  props: ['options'],
   data() {
     return {
       options: [{
