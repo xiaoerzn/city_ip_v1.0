@@ -5,8 +5,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     redirect: "/login",
   },
@@ -23,9 +22,8 @@ const routes = [
     meta: {
       title: "首页",
     },
-    component:() => import('./views/Home.vue'),
-    children: [
-      {
+    component: () => import('./views/Home.vue'),
+    children: [{
         path: "/home_map",
         component: () => import('./views/map.vue'),
         meta: {
@@ -33,43 +31,62 @@ const routes = [
         },
       },
       {
-      path: "/home_statistics",
-      component: () => import('./views/statistics.vue'),
-      meta: {
-        title: "首页-统计",
+        path: "/home_statistics",
+        component: () => import('./views/statistics.vue'),
+        meta: {
+          title: "首页-统计",
+        },
       },
-    },
-    {
-      path: "/Asset",
-      component: () => import('./views/Asset/AssetHome.vue'),
-      meta: {
-        title: "网络资产",
+      {
+        path: "/Asset",
+        component: () => import('./views/Asset/AssetHome.vue'),
+        meta: {
+          title: "网络资产",
+        },
       },
-    },
-    {
-      path: "/AssetDetail/:id",
-      component: () => import('./views/Asset/AssetDetail.vue'),
-      meta: {
-        title: "资产",
+      {
+        path: "/AssetDetail/:id",
+        component: () => import('./views/Asset/AssetDetail.vue'),
+        meta: {
+          title: "资产",
+        },
       },
-    },
-    {
-      path: "/node1",
-      component: ()=>import('./views/Domain/DomainHome.vue'),
-      meta: {
-        title: "网络域名",
+      {
+        path: "/Domain",
+        component: () => import('./views/Domain/DomainHome.vue'),
+        meta: {
+          title: "网络域名",
+        },
+      }, {
+        path: "/DomainDetail/:id",
+        component: () => import('./views/Domain/DomainDetail.vue'),
+        meta: {
+          title: "域名",
+        },
+      }, {
+        path: "/ASinfo",
+        component: ()=>import('./views/AS/AsHome.vue'),
+        meta: {
+          title: "AS系统-查询页",
+        },
+      }, {
+        path: "/AsDetail/:id",
+        component: ()=>import('./views/AS/AsDetail.vue'),
+        meta: {
+          title: "AS",
+        },
       },
-    }, {
-      path: "/DomainDetail/:id",
-      component: ()=>import('./views/Domain/DomainDetail.vue'),
-      meta: {
-        title: "域名",
+      {
+        path: "/News",
+        component: () => import('./views/News/news.vue'),
+        meta: {
+          title: "资讯",
+        },
       },
-    }, 
 
 
-  ]
-    
+    ]
+
   },
 ]
 

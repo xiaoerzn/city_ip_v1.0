@@ -50,7 +50,7 @@
             <el-col :span="10">
                 <el-card class="AS-box-card">
                     <div slot="header" class="clearfix">
-                        <span>AS总量-{{ kind }}</span>
+                        <span>AS总量-{{ kind }}</span>&nbsp;<el-button type="text" icon="el-icon-view" @click="view_AS()" >查看详情</el-button>
                         <el-radio-group v-model="radio3" style="float: right; " @change="change_time">
                             <el-radio-button label="2022"></el-radio-button>
                             <el-radio-button label="2021"></el-radio-button>
@@ -71,7 +71,7 @@
             <el-col :span="10">
                 <el-card class="News-box-card">
                     <div slot="header" class="clearfix">
-                        <span>相关资讯数-{{ kind }}</span>
+                        <span>相关资讯数-{{ kind }}</span>&nbsp;<el-button type="text" icon="el-icon-view" @click="view_news()" >查看详情</el-button>
                         <el-radio-group v-model="radio4" style="float: right; " @change="change_time">
                             <el-radio-button label="2022"></el-radio-button>
                             <el-radio-button label="2021"></el-radio-button>
@@ -115,7 +115,13 @@ export default {
             this.CommonFunction.OpenNewBlank('','Asset',this)
         },
         view_domain(){
-            this.CommonFunction.OpenNewBlank('','node1',this)
+            this.CommonFunction.OpenNewBlank('','Domain',this)
+        },
+        view_AS(){
+            this.CommonFunction.OpenNewBlank('','ASinfo',this)
+        },
+        view_news(){
+            this.CommonFunction.OpenNewBlank('','News',this)
         }
 
     }
