@@ -2,12 +2,12 @@
     <div class="DataDIV">
         <el-row type="flex" justify="space-around">
             <el-col :span="10">
-                <el-card class="asset-box-card">
-                    <div slot="header" class="clearfix">
+                <el-card class="asset-box-card" >
+                    <div slot="header" class="clearfix" >
                         <span>资产总量-{{ kind }}</span> &nbsp;<el-button type="text" icon="el-icon-view" @click="view_asset()" >查看详情</el-button>
-                        <el-radio-group v-model="radio1" style="float: right; " @change="change_time">
-                            <el-radio-button label="2022"></el-radio-button>
-                            <el-radio-button label="2021"></el-radio-button>
+                        <el-radio-group v-model="asset" style="float: right; " @change="change_time" >
+                            <el-radio-button label="asset2022" name="asset">2022</el-radio-button>
+                            <el-radio-button label="asset2021" name="asset">2021</el-radio-button>
                         </el-radio-group>
                     </div>
                     <div class="card_body">
@@ -27,9 +27,9 @@
                 <el-card class="Domain-box-card">
                     <div slot="header" class="clearfix">
                         <span>域名总量-{{ kind }}</span>&nbsp;<el-button type="text" icon="el-icon-view" @click="view_domain()" >查看详情</el-button>
-                        <el-radio-group v-model="radio2" style="float: right; " @change="change_time">
-                            <el-radio-button label="2022"></el-radio-button>
-                            <el-radio-button label="2021"></el-radio-button>
+                        <el-radio-group v-model="domain" style="float: right; " @change="change_time">
+                            <el-radio-button label="domain2022">2022</el-radio-button>
+                            <el-radio-button label="domain2021">2021</el-radio-button>
                         </el-radio-group>
                     </div>
                     <div class="card_body">
@@ -51,9 +51,9 @@
                 <el-card class="AS-box-card">
                     <div slot="header" class="clearfix">
                         <span>AS总量-{{ kind }}</span>&nbsp;<el-button type="text" icon="el-icon-view" @click="view_AS()" >查看详情</el-button>
-                        <el-radio-group v-model="radio3" style="float: right; " @change="change_time">
-                            <el-radio-button label="2022"></el-radio-button>
-                            <el-radio-button label="2021"></el-radio-button>
+                        <el-radio-group v-model="AS" style="float: right; " @change="change_time">
+                            <el-radio-button label="as2022">2022</el-radio-button>
+                            <el-radio-button label="as2021">2021</el-radio-button>
                         </el-radio-group>
                     </div>
                     <div class="card_body">
@@ -72,9 +72,9 @@
                 <el-card class="News-box-card">
                     <div slot="header" class="clearfix">
                         <span>相关资讯数-{{ kind }}</span>&nbsp;<el-button type="text" icon="el-icon-view" @click="view_news()" >查看详情</el-button>
-                        <el-radio-group v-model="radio4" style="float: right; " @change="change_time">
-                            <el-radio-button label="2022"></el-radio-button>
-                            <el-radio-button label="2021"></el-radio-button>
+                        <el-radio-group v-model="News" style="float: right; " @change="change_time">
+                            <el-radio-button label="news2022">2022</el-radio-button>
+                            <el-radio-button label="news2021">2021</el-radio-button>
                         </el-radio-group>
                     </div>
                     <div class="card_body">
@@ -101,15 +101,18 @@ export default {
     props: ["AssetNum", "AssetRate", "DomainNum", "DomainRate","ASNum", "ASRate","NewsNum", "NewsRate","kind"],
     data() {
         return {
-            radio1: '2022',
-            radio2: '2022',
-            radio3: '2022',
-            radio4: '2022',
+            asset: 'asset2022',
+            domain: 'domain2022',
+            AS: 'as2022',
+            News: 'news2022',
         };
     },
     methods: {
         change_time(e) {
             this.$emit('time_select', e)
+            // let a=this.$refs.assetdata.$children[0].name
+            // let a=this.$refs.assetdata
+            // console.log(e)
         },
         view_asset(){
             this.CommonFunction.OpenNewBlank('','Asset',this)

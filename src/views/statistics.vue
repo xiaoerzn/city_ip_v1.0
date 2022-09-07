@@ -13,13 +13,13 @@
       <el-col :span="16">
         <Data @time_select="timeSelect($event)"
         :AssetNum="asset_num"
-        :AssetRate="asset_rate" 
-        :ASNum="AS_num" 
-        :ASRate="AS_rate" 
-        :DomainNum="Domain_num" 
-        :DomainRate="Domain_rate" 
-        :NewsNum="News_num" 
-        :NewsRate="News_rate"
+        :AssetRate="asset_rate"
+        :ASNum="as_num"
+        :ASRate="as_rate"
+        :DomainNum="domain_num"
+        :DomainRate="domain_rate"
+        :NewsNum="news_num"
+        :NewsRate="news_rate"
         :kind="Kind"></Data>
       </el-col>
     </el-row>
@@ -40,12 +40,12 @@ export default {
     return {
       asset_num: 12344234,
       asset_rate:'-13',
-      AS_num:235435,
-      AS_rate :45,
-      Domain_num :67345,
-      Domain_rate :-20,
-      News_num:5478,
-      News_rate:57,
+      as_num:235435,
+      as_rate :45,
+      domain_num :67345,
+      domain_rate :-20,
+      news_num:5478,
+      news_rate:57,
       Kind:'所有行业',
       CityOptions:[],
       queryInfo:{city:'',industry:'',time:'2022'}
@@ -65,7 +65,10 @@ export default {
       // console.log(e)
     },
     timeSelect(e) {
-      console.log(e)
+      let type=e.replace(/[^a-zA-Z]/g,'')
+      let year=e.replace(/[^\d]/g,'')
+      // console.log(kind)
+      // console.log(year)
       // this.queryInfo.time=e
     },
     async getCityList() {
@@ -73,11 +76,12 @@ export default {
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.CityOptions = res.data
     },
-    async getStaData() {
+    async getStaData(city,industry,type,year) {
       const { data: res } = await this.$http.get('as_info_search', {
-        params: this.queryInfo
+        params: {city:'',industry:'',type:'',year:'2022'}
       })
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      this[ type+ "_num"]=res.data
       this.asset_num = res.data
       this.asset_rate=1;
       this.AS_num=235435;
