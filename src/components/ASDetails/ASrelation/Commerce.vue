@@ -1,11 +1,6 @@
 <template>
-  <el-table
-    :data="commercedata"
-    :height="this.tableData.length?900:100"
-    style="width: 100%"
-    :default-sort="{ prop: 'asn', order: 'descending' }"
-    :row-class-name="tabRowClassName"
-  >
+  <el-table :data="commercedata" :height="this.tableData.length?900:100" style="width: 100%"
+    :default-sort="{ prop: 'asn', order: 'descending' }" :row-class-name="tabRowClassName">
     <el-table-column prop="asn" label="ASN" width="80" sortable>
     </el-table-column>
     <el-table-column prop="as_name" label="AS名称" width="150" sortable>
@@ -17,9 +12,9 @@
     </el-table-column>
     <el-table-column prop="ip_type" label="类型" width="80" sortable>
     </el-table-column>
-    <el-table-column prop="ipv4_count" label="IPV4地址数量" width="80"  sortable >
+    <el-table-column prop="ipv4_count" label="IPV4地址数量" width="80" sortable>
     </el-table-column>
-    <el-table-column prop="ipv6_count" label="IPV6地址数量" width="80" sortable >
+    <el-table-column prop="ipv6_count" label="IPV6地址数量" width="80" sortable>
     </el-table-column>
     <el-table-column prop="first_seen" label="最早发现" sortable>
     </el-table-column>
@@ -27,18 +22,12 @@
     </el-table-column>
     <el-table-column prop="source" label="数据来源" width="100">
     </el-table-column>
-    <el-table-column
-      prop="as_relation"
-      label="关系"
-      width="90"
-      :filters="[
-        { text: 'C2P', value: 'C2P' },
-        { text: 'P2P', value: 'P2P' },
-        { text: 'C2C', value: 'C2C' },
-        { text: 'P2C', value: 'P2C' },
-      ]"
-      :filter-method="filterHandler"
-    >
+    <el-table-column prop="as_relation" label="关系" width="90" :filters="[
+      { text: 'C2P', value: 'C2P' },
+      { text: 'P2P', value: 'P2P' },
+      { text: 'C2C', value: 'C2C' },
+      { text: 'P2C', value: 'P2C' },
+    ]" :filter-method="filterHandler">
     </el-table-column>
     <el-table-column prop="ixp_count" label="IXP数量" width="100" sortable>
     </el-table-column>
@@ -51,7 +40,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       commercedata: [],
       tableData: [
@@ -381,11 +370,11 @@ export default {
       ]
     }
   },
-  created () {
+  created() {
     this.getCommercedata()
   },
   methods: {
-    async getCommercedata () {
+    async getCommercedata() {
       const { data: res, status: sta } = await this.$http.get('as_peer', {
         params: { asn: this.$route.params.id }
       })
@@ -397,11 +386,11 @@ export default {
       this.commercedata = res.as_peer
     },
 
-    filterHandler (value, row, column) {
+    filterHandler(value, row, column) {
       const property = column.property
       return row[property] === value
     },
-    tabRowClassName ({ row, rowIndex }) {
+    tabRowClassName({ row, rowIndex }) {
       const index = rowIndex + 1
       if (index % 2 == 0) {
         return 'warning-row'
@@ -413,8 +402,9 @@ export default {
 
 <style lang="less" scoped>
 /deep/ .warning-row {
-  background:  #e6effb;
+  background: #e6effb;
 }
+
 /* .el-table {
   font-size: 13px !important;
 }
