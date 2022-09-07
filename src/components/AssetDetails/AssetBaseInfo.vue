@@ -12,7 +12,7 @@
             <el-col :span="6" v-for="item in ipBaseInfo.mess" :key="item.index">
               <el-row>
                 <el-col :span="8">
-                  <img :src="require('../../assets/asset/svg' + item.name + '.svg')" />
+                  <img :src="require('../../assets/asset/svg/' + item.name + '.svg')" />
                 </el-col>
                 <el-col :span="16">
                   <el-row style="height:30px;lineHeight:30px;fontWeight: 700;fontSize: 22px;color: #000;">{{ item.num }}</el-row>
@@ -91,8 +91,9 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error('获取默认列表失败！')
       }
-      console.log(res)
+      
       this.ipBaseInfo = res.data
+      // console.log(this.ipBaseInfo)
     }
   }
 }

@@ -25,7 +25,7 @@ const routes = [{
     component: () => import('./views/Home.vue'),
     children: [{
         path: "/home_map",
-        component: () => import('./views/map.vue'),
+        component: () => import('./views/WholeMap/MapHome.vue'),
         meta: {
           title: "首页-可视化地图",
         },

@@ -67,7 +67,7 @@ export default {
       arrow: { textAlign: "center", margin: "0px" },
       list: [
         { label: "美国", value: "77,267,505" },
-        { label: "日本", value: "6,540,566" },
+        { label: "日本", value: "61,540,566" },
         { label: "印度", value: "11,773,029" },
         { label: "中国台湾", value: "1,751,108" },
         { label: "韩国", value: "11,773,029" },
