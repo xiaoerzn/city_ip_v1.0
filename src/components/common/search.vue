@@ -115,7 +115,7 @@ export default {
     Download(command) {
       var date= new Date().Format("yyyy-MM-dd hh:mm:ss");
       this.CommonFunction.DownloadFile(
-        "http://10.15.1.192:8000/api/"+this.category+"/down?eachpage="+this.queryInfo.eachpage+"&pagenum="+this.queryInfo.pagenum+"&filetype="+command,
+        "http://10.15.1.192:8888/apis/as"+this.category+"/down?eachpage="+this.queryInfo.eachpage+"&pagenum="+this.queryInfo.pagenum+"&filetype="+command,
         "EXP-RES-" +this.category +this.queryInfo.query+"-"+date+'.'+command
       );
 },

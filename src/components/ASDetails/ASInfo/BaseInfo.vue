@@ -29,7 +29,7 @@
         <el-col :span="8" >
           <el-row class="row-basinfo">
             <el-col :span="10"><i class="iconfont iconicon-dingwei"></i>&nbsp;国家地区 : </el-col>
-            <el-col :span="14">{{ asbaseinfo.country }}&nbsp; &nbsp;&nbsp;<img :src="`http://10.15.1.192:8000/static/${asbaseinfo.country}.png`"></el-col>
+            <el-col :span="14">{{ asbaseinfo.country }}&nbsp; &nbsp;&nbsp;<img :src="`http://10.15.1.192:8888/static/${asbaseinfo.country}.png`"></el-col>
           </el-row>
           <el-row class="row-basinfo">
             <el-col :span="10"><i class="iconfont iconorgan"></i>&nbsp;所属组织 : </el-col>
@@ -218,7 +218,7 @@ export default {
   },
   methods: {
     async getBaseInfo () {
-      const { data: res } = await this.$http.get('as_base_info', {
+      const { data: res } = await this.$http.get('as/as_base_info', {
         params: { asn: this.$route.params.id }
       })
       // console.log(res)

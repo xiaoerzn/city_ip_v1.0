@@ -159,7 +159,7 @@ export default {
       }
     },
     async getIXPdata () {
-      const { data: res } = await this.$http.get('ixp', {
+      const { data: res } = await this.$http.get('as/ixp', {
         params: { asn: this.$route.params.id }
       })
 

@@ -19,7 +19,7 @@
           <el-col :span="2" style="text-align: left; font-weight: bold">ASN {{ item.asn }}</el-col>
           <el-col :span="4" style="text-align: left"><el-button type="text" icon="el-icon-view" @click="view_details(item.asn)" size="mini">查看详情</el-button></el-col>
           <el-col :span="6" style="text-align: left; text-overflow: ellipsis; white-space: nowrap; overflow: hidden">{{ item.as_name }}</el-col>
-          <el-col :span="8" style="text-align: left"> {{ item.country }}-{{ item.city }}&nbsp;&nbsp;<img :src="`http://10.15.1.192:8000/static/${item.iso}.png`" /></el-col>
+          <el-col :span="8" style="text-align: left"> {{ item.country }}-{{ item.city }}&nbsp;&nbsp;<img :src="`http://10.15.1.192:8888/static/${item.iso}.png`" /></el-col>
           <el-col :span="4"><i class="iconfont iconshijian"></i>&nbsp; {{ item.last_seen }}</el-col>
         </el-row>
       </div>
@@ -79,7 +79,7 @@ export default {
   methods:{
           async getASList () {
       this.loading = false
-      const { data: res } = await this.$http.get('as_info_search', {
+      const { data: res } = await this.$http.get('as/as_info_search', {
         params: this.queryInfo
       })
       if (res.meta.status !== 200) {
@@ -92,7 +92,7 @@ export default {
       this.loading = false
       // console.log(res)
     },
-        view_details (asn) {  
+        view_details (asn) {
       this.CommonFunction.OpenNewBlank(asn,'AsDetail',this)
       // this.$router.push({ path: `/AsDetail/${asn}` })
     },

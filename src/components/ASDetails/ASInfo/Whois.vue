@@ -16,7 +16,7 @@ export default {
   methods: {
 
     async getWhois () {
-      const { data: res } = await this.$http.get('as_whois', {
+      const { data: res } = await this.$http.get('as/as_whois', {
         params: { asn: this.$route.params.id }
       })
       // console.log(res)

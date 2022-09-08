@@ -25,7 +25,7 @@
                   >{{ item.DomainName }}&nbsp;<el-button type="text" icon="el-icon-view" @click="view_details(item.DomainName)" size="mini">查看详情</el-button></el-col
                 >
                 <!-- 国旗 -->
-                <el-col :span="8"><img :src="`http://10.15.1.192:8000/static/${item.country}.png`" onerror="javascript:this.src='';"/></el-col>
+                <el-col :span="8"><img :src="`http://10.15.1.192:8888/static/${item.country}.png`" onerror="javascript:this.src='';"/></el-col>
                 <el-col :span="8" style="text-align: right"><i class="iconfont iconshijian"></i>&nbsp; {{ item.DisplayTime }}</el-col>
               </el-row>
             </div>

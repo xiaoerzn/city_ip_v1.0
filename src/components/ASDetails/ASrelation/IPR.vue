@@ -153,7 +153,7 @@ export default {
       }
     },
     async getIPRdata () {
-      const { data: res } = await this.$http.get('as_prefix', {
+      const { data: res } = await this.$http.get('as/as_prefix', {
         params: { asn: this.$route.params.id }
       })
       // console.log(res)
