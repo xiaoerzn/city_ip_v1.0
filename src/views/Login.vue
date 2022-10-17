@@ -52,6 +52,7 @@ export default {
     }
   },
   created () {
+    this.$router.push('/home')
     const that = this
     document.onkeydown = function (e) {
       e = window.event || e

@@ -77,7 +77,7 @@ export default {
       this.CityOptions = res.data
     },
     async getStaData(city,industry,type,year) {
-      const { data: res } = await this.$http.get('as_info_search', {
+      const { data: res } = await this.$http.get('as/as_info_search', {
         params: {city:'',industry:'',type:'',year:'2022'}
       })
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)

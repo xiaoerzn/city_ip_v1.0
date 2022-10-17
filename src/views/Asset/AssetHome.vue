@@ -92,7 +92,7 @@
         <el-row>
           <el-col :span="8" class="infoleft">
             <el-row>
-              <img :src="`http://10.15.1.192:8000/static/${item.iso}.png`" />-{{
+              <img :src="`http://10.15.1.192:8888/static/${item.iso}.png`" />-{{
                 item.country
               }}-{{ item.province }}
             </el-row>

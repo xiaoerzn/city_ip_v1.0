@@ -375,7 +375,7 @@ export default {
   },
   methods: {
     async getCommercedata() {
-      const { data: res, status: sta } = await this.$http.get('as_peer', {
+      const { data: res, status: sta } = await this.$http.get('as/as_peer', {
         params: { asn: this.$route.params.id }
       })
       // console.log(res)

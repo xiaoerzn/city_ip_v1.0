@@ -66,33 +66,6 @@ import 'echarts-gl';
 export default {
     data() {
         return {
-            // ROOT_PATH :'https://echarts.apache.org/examples',
-            option: {
-                backgroundColor: '#000',
-                globe: {
-                    baseTexture: require('../../assets/map/world.topo.bathy.200401.jpg'),
-                    heightTexture: require('../../assets/map/world.topo.bathy.200401.jpg'),
-                    displacementScale: 0.04,
-                    shading: 'realistic',
-                    environment: require('../../assets/map/starfield.jpg'),
-                    realisticMaterial: {
-                        roughness: 0.9
-                    },
-                    postEffect: {
-                        enable: true
-                    },
-                    light: {
-                        main: {
-                            intensity: 5,
-                            shadow: true
-                        },
-                        ambientCubemap: {
-                            texture: '../../assets/map/pisa.hdr',
-                            diffuseIntensity: 0.2
-                        }
-                    }
-                }
-            },
             form: {
                 name: '',
                 region: '',
@@ -102,20 +75,95 @@ export default {
                 type: [],
                 resource: '',
                 desc: ''
-            }
+            },
+            data:require('../../assets/map/flights.json'),
+            routes:{}
+            // ROOT_PATH :'https://echarts.apache.org/examples',
+            // option: {
+            //     backgroundColor: '#000',
+            //     globe: {
+            //         baseTexture: require('https://echarts.apache.org/examples /data-gl/asset/world.topo.bathy.200401.jpg'),
+            //         heightTexture: require('https://echarts.apache.org/examples/data-gl/asset/bathymetry_bw_composite_4k.jpg'),
+            //         shading: 'lambert',
+            //         light: {
+            //             ambient: {
+            //                 intensity: 0.4
+            //             },
+            //             main: {
+            //                 intensity: 0.4
+            //             }
+            //         },
+            //         viewControl: {
+            //             autoRotate: false
+            //         }
+            //     },
+            //     series: {
+            //         type: 'lines3D',
+            //         coordinateSystem: 'globe',
+            //         blendMode: 'lighter',
+            //         lineStyle: {
+            //             width: 1,
+            //             color: 'rgb(50, 50, 150)',
+            //             opacity: 0.1
+            //         },
+            //         data: routes
+            //     }
+            // }
         }
     },
     created() {
-        // this.registerMap()
+        
     },
     mounted() {
         this.drawChart();
     },
     methods: {
-        drawChart() {
-            let myChart = this.$echarts.init(document.getElementById("map"))
-            myChart.setOption(this.option)
+        onSubmit(){
+            return
         },
+        getdata() {
+            this.routes = this.data.routes.map(function (airline) {
+                return [this.getAirportCoord(airline[1]), this.getAirportCoord(airline[2])];
+            });
+        },
+        drawChart(){
+            this.getdata()
+            let myChart = this.$echarts.init(document.getElementById("map"))
+            myChart.setOption({
+                backgroundColor: '#000',
+                globe: {
+                    baseTexture: require('../../assets/map/world.topo.bathy.200401.jpg'),
+                    heightTexture:require('../../assets/map/bathymetry_bw_composite_4k_v2.jpg'),
+                    shading: 'lambert',
+                    light: {
+                        ambient: {
+                            intensity: 0.4
+                        },
+                        main: {
+                            intensity: 0.4
+                        }
+                    },
+                    viewControl: {
+                        autoRotate: false
+                    }
+                },
+                series: {
+                    type: 'lines3D',
+                    coordinateSystem: 'globe',
+                    blendMode: 'lighter',
+                    lineStyle: {
+                        width: 1,
+                        color: 'rgb(50, 50, 150)',
+                        opacity: 0.1
+                    },
+                    data: this.routes
+                }
+            });
+        },
+        getAirportCoord(idx) {
+            return [this.data.airports[idx][3], this.data.airports[idx][4]];
+        },
+
     }
 }
 </script>

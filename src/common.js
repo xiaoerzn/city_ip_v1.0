@@ -22,6 +22,8 @@ var DownloadFile = function (downloadurl, filename) {
   };
   x.send();
 }
+
+
   export default {
     OpenNewBlank,
     DownloadFile,
